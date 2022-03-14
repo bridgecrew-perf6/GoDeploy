@@ -12,7 +12,7 @@ RUN chmod +x /entrypoint.sh
 
 WORKDIR /usr/src/app
 
-COPY src $GOPATH/src
+COPY src/ $GOPATH/src
 RUN ls -la $GOPATH/src
 
 RUN go mod download
