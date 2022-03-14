@@ -10,12 +10,10 @@ RUN  apk update && \
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
-RUN ls -la src
 WORKDIR /usr/src/app
 
-RUN ls -la
-COPY ./app ./
-RUN ls -la
+COPY src $GOPATH/src
+RUN ls -la $GOPATH/src
 
 RUN go mod download
 RUN go build -o /build-deploy
