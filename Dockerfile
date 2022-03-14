@@ -12,7 +12,7 @@ RUN chmod +x /entrypoint.sh
 
 WORKDIR /usr/src/app
 
-COPY ./ ./
+COPY ./app ./
 RUN ls -la
 
 RUN go mod download
