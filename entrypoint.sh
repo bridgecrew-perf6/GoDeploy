@@ -1,9 +1,7 @@
 #!/bin/bash
 
-cp /github/workspace/app ~
-
-go mod download
-go build -o build
+#go mod download
+#go build -o build
 ls -la
 
 #echo "Конфигурирую SSH"
