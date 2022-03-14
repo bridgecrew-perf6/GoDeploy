@@ -1,0 +1,28 @@
+name: 'golang-autodeploy'
+description: 'A GitHub Action that run command on server'
+author: 'Pavel Zarubin'
+
+inputs:
+  host:
+    description: 'Remote server address'
+    required: true
+
+  user:
+    description: 'Remote server user'
+    required: true
+
+  key:
+    description: 'Remote server private key'
+    required: true
+
+  dir:
+    description: 'Directory on the server'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'upload-cloud'
+  color: 'red'
