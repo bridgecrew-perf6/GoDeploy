@@ -10,7 +10,7 @@ RUN  apk update && \
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
-RUN ls -la /home/runner/work/_actions
+RUN ls -la
 WORKDIR /usr/src/app
 
 RUN ls -la
