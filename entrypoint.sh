@@ -1,9 +1,10 @@
 #!/bin/bash
 
-ls -la /github/workspace/
+cp /github/workspace/app ~
 
-#RUN go mod download
-#RUN go build -o /build-deploy
+go mod download
+go build -o build
+ls -la
 
 #echo "Конфигурирую SSH"
 #
