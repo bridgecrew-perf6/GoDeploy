@@ -4,7 +4,8 @@ cd ./app && go mod download
 /bin/sh /create_env.sh
 
 echo "Билдим приложение..."
-go build -o build .
+go build -o build/app .
+mv .env build/.env
 
 echo "Конфигурирую SSH..."
 
@@ -18,13 +19,11 @@ chmod 600 ~/.ssh/id_rsa
 
 echo "Произвожу деплой"
 
-echo "${INPUT_USER}@${INPUT_HOST}"
-
 scp -o UserKnownHostsFile=/dev/null \
         -o StrictHostKeyChecking=no \
         -o LogLevel=quiet \
         -i ~/.ssh/id_rsa \
-        build ${INPUT_USER}@${INPUT_HOST}:build
+        ./build ${INPUT_USER}@${INPUT_HOST}:~/build
 
 #ssh -o UserKnownHostsFile=/dev/null \
 #    -o StrictHostKeyChecking=no \

@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:latest
 
 RUN  apk update && \
   apk add --no-cache ca-certificates \
@@ -13,5 +13,7 @@ RUN chmod +x /entrypoint.sh
 RUN chmod +x /create_env.sh
 
 WORKDIR /usr/src/app
+
+RUN mkdir build
 
 ENTRYPOINT ["/entrypoint.sh"]
