@@ -16,20 +16,6 @@ inputs:
     description: 'Directory on the server'
     required: true
 
-  dbhost:
-    description: 'Host database'
-    required: false
-    default: 'localhost'
-  dbuser:
-    description: 'User database'
-    required: true
-  dbpassword:
-    description: 'Password database'
-    required: true
-  url:
-    description: 'Base url application'
-    required: true
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
