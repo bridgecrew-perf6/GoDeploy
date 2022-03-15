@@ -1,7 +1,7 @@
 FROM golang:latest
 
-RUN  apk update && \
-  apk add --no-cache ca-certificates \
+RUN  apt-get update && \
+  apt-get install ca-certificates \
   openssh-client \
   sshpass \
   bash
