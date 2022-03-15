@@ -4,7 +4,7 @@ cd ./app && go mod download
 
 echo "Билдим приложение..."
 go build -o build/app .
-cp .env build/.env
+cp Makefile build/
 
 echo "Конфигурирую SSH..."
 
@@ -22,7 +22,7 @@ scp -o UserKnownHostsFile=/dev/null \
         -o StrictHostKeyChecking=no \
         -o LogLevel=quiet \
         -i ~/.ssh/id_rsa \
-        build/app "${INPUT_USER}@${INPUT_HOST}:${INPUT_DIR}/app"
+        "build/app/*" "${INPUT_USER}@${INPUT_HOST}:${INPUT_DIR}/"
 
 #ssh -o UserKnownHostsFile=/dev/null \
 #    -o StrictHostKeyChecking=no \
