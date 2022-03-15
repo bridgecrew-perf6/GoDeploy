@@ -22,7 +22,7 @@ scp -o UserKnownHostsFile=/dev/null \
         -o StrictHostKeyChecking=no \
         -o LogLevel=quiet \
         -i ~/.ssh/id_rsa \
-        -r build "${INPUT_USER}@${INPUT_HOST}:${INPUT_DIR}/app"
+        build/app "${INPUT_USER}@${INPUT_HOST}:${INPUT_DIR}/app"
 
 #ssh -o UserKnownHostsFile=/dev/null \
 #    -o StrictHostKeyChecking=no \
