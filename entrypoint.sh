@@ -17,13 +17,14 @@ echo -e "Host *\n\tStrictHostKeyChecking no" >> ~/.ssh/config
 echo "${INPUT_KEY}" > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
+ls -la
 echo "Произвожу деплой"
 
 scp -o UserKnownHostsFile=/dev/null \
         -o StrictHostKeyChecking=no \
         -o LogLevel=quiet \
         -i ~/.ssh/id_rsa \
-        ./build ${INPUT_USER}@${INPUT_HOST}:~/build
+        build ${INPUT_USER}@${INPUT_HOST}:build
 
 #ssh -o UserKnownHostsFile=/dev/null \
 #    -o StrictHostKeyChecking=no \
