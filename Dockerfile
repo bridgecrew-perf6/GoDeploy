@@ -14,6 +14,4 @@ RUN chmod +x /create_env.sh
 
 WORKDIR /usr/src/app
 
-RUN mkdir build
-
 ENTRYPOINT ["/entrypoint.sh"]
