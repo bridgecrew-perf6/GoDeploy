@@ -7,10 +7,8 @@ RUN  apt-get update && \
   bash
 
 COPY entrypoint.sh /
-COPY create_env.sh /
 
 RUN chmod +x /entrypoint.sh
-RUN chmod +x /create_env.sh
 
 WORKDIR /usr/src/app
 
