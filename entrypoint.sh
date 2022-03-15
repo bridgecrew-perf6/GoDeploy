@@ -1,21 +1,28 @@
 #!/bin/bash
 
 cd ./app && go mod download
-go build -o build
-ls -la
+/bin/sh /create_env.sh
 
-#echo "Конфигурирую SSH"
-#
-#mkdir -p ~/.ssh/
-#touch ~/.ssh/config
-#
-#echo -e "Host *\n\tStrictHostKeyChecking no" >> ~/.ssh/config
-#
-#echo "${INPUT_KEY}" > ~/.ssh/id_rsa
-#chmod 600 ~/.ssh/id_rsa
-#
-#echo "Произвожу деплой"
-#
+go build -o build
+
+echo "Конфигурирую SSH"
+
+mkdir -p ~/.ssh/
+touch ~/.ssh/config
+
+echo -e "Host *\n\tStrictHostKeyChecking no" >> ~/.ssh/config
+
+echo "${INPUT_KEY}" > ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
+
+echo "Произвожу деплой"
+
+scp -o UserKnownHostsFile=/dev/null \
+        -o StrictHostKeyChecking=no \
+        -o LogLevel=quiet \
+        -i ~/.ssh/id_rsa \
+        build ${INPUT_USER}@${INPUT_HOST}:build
+
 #ssh -o UserKnownHostsFile=/dev/null \
 #    -o StrictHostKeyChecking=no \
 #    -o LogLevel=quiet \

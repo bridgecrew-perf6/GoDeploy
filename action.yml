@@ -6,17 +6,28 @@ inputs:
   host:
     description: 'Remote server address'
     required: true
-
   user:
     description: 'Remote server user'
     required: true
-
   key:
     description: 'Remote server private key'
     required: true
-
   dir:
     description: 'Directory on the server'
+    required: true
+
+  dbhost:
+    description: 'Host database'
+    required: false
+    default: 'localhost'
+  dbuser:
+    description: 'User database'
+    required: true
+  dbpassword:
+    description: 'Password database'
+    required: true
+  url:
+    description: 'Base url application'
     required: true
 
 runs:
