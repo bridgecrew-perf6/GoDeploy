@@ -23,6 +23,12 @@ scp -o UserKnownHostsFile=/dev/null \
         -i ~/.ssh/id_rsa \
         build/app "${INPUT_USER}@${INPUT_HOST}:${INPUT_DIR}/app"
 
+scp -o UserKnownHostsFile=/dev/null \
+        -o StrictHostKeyChecking=no \
+        -o LogLevel=quiet \
+        -i ~/.ssh/id_rsa \
+        -r db/migrations "${INPUT_USER}@${INPUT_HOST}:${INPUT_DIR}/"
+
 #ssh -o UserKnownHostsFile=/dev/null \
 #    -o StrictHostKeyChecking=no \
 #    -o LogLevel=quiet \
