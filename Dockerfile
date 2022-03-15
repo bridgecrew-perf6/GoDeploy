@@ -1,7 +1,7 @@
 FROM golang:latest
 
 RUN  apt-get update && \
-  apt-get install ca-certificates \
+  apt-get -y install ca-certificates \
   openssh-client \
   sshpass \
   bash
