@@ -3,9 +3,10 @@
 cd ./app && go mod download
 /bin/sh /create_env.sh
 
+echo "Билдим приложение..."
 go build -o build
 
-echo "Конфигурирую SSH"
+echo "Конфигурирую SSH..."
 
 mkdir -p ~/.ssh/
 touch ~/.ssh/config
@@ -16,6 +17,8 @@ echo "${INPUT_KEY}" > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
 echo "Произвожу деплой"
+
+echo "${INPUT_USER}@${INPUT_HOST}"
 
 scp -o UserKnownHostsFile=/dev/null \
         -o StrictHostKeyChecking=no \
