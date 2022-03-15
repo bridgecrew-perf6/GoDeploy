@@ -4,7 +4,7 @@ cd ./app && go mod download
 /bin/sh /create_env.sh
 
 echo "Билдим приложение..."
-go build -o build
+go build -o build .
 
 echo "Конфигурирую SSH..."
 
